@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import { createPost } from '../actions/postsActions';
+import MenuItem from '@material-ui/core/MenuItem';
+import colors from '../misc/colors';
 
 const styles = theme => ({
   button: {
@@ -44,6 +46,7 @@ export class CreatePost extends Component {
   };
 
   render() {
+    const topic = this.state;
     const { postText } = this.state;
     const { classes } = this.props;
     return (
@@ -54,8 +57,25 @@ export class CreatePost extends Component {
         onSubmit={this.handleSubmit}
       >
         <TextField
+          fullWidth
+          select
+          className={classes.textField}
+          value={topic}//create const topic
+          id="topic"
+          label="What do you want to teach today?"
+          margin="normal"
+          name="topic"
+          onChange={this.handleChange}
+        >
+          {colors.map(color => (//repalce color with skill list
+            <MenuItem key={color.value} value={color.value}>
+              {color.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
           id="textarea"
-          placeholder="What's on your mind?"
+          placeholder="Add some details."
           multiline
           className={classes.textField}
           margin="normal"
