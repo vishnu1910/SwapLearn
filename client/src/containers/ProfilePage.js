@@ -19,7 +19,6 @@ import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import colors from '../misc/colors';
-import skills from '../misc/skills';
 import defaultImage from '../images/pebbleBeach.JPG';
 import { updateCurrentUser } from '../actions/authActions';
 import { getFollowers, getFollowing, getUser } from '../actions/userActions';
@@ -92,10 +91,8 @@ class ProfilePage extends Component {
   state = {
     avatarColor: 17,
     bio: '',
-    skill: 3,
     createdAt: 0,
     displayedAvatarColor: 17,
-    //displayedSkills: 3,
     displayedBio: '',
     displayedEmail: '',
     displayedName: '',
@@ -144,10 +141,8 @@ class ProfilePage extends Component {
       this.setState({
         avatarColor: res.payload.user.avatarColor,
         bio: res.payload.user.bio,
-        skill: res.payload.user.skillnum,
         createdAt: res.payload.user.createdAt,
         displayedAvatarColor: res.payload.user.avatarColor,
-        //displayedSkills: res.payload.user.skillnum,
         displayedBio: res.payload.user.bio,
         displayedEmail: res.payload.user.email,
         displayedName: res.payload.user.name,
@@ -184,11 +179,10 @@ class ProfilePage extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { updateUser, signedInUser } = this.props;
-    const { avatarColor, skill, bio, email, name, showEmail } = this.state;
+    const { avatarColor, bio, email, name, showEmail } = this.state;
 
     updateUser(
       avatarColor,
-      skill,
       bio,
       email,
       name,
@@ -214,23 +208,20 @@ class ProfilePage extends Component {
     const { classes, getTheUser, match, signedInUser } = this.props;
     const {
       avatarColor,
-      skill,
       createdAt,
       displayedAvatarColor,
-      //displayedSkills,
       displayedBio,
       displayedEmail,
       displayedName,
       followers,
       following,
-      interest,
       loadingFollowers,
       loadingFollowing,
       loadingUser,
       modalOpen,
       profileId,
       showEmail,
-      showEmailSavedResult,
+      showEmailSavedResult
     } = this.state;
 
     return loadingFollowers || loadingFollowing || loadingUser ? (
@@ -356,40 +347,6 @@ class ProfilePage extends Component {
                 onChange={this.handleChange}
                 placeholder="Describe yourself."
               />
-              <TextField
-                fullWidth
-                select
-                className={classes.textField}
-                value={skill}//create const skill
-                id="skill"
-                label="Skills"
-                margin="normal"
-                name="skill"
-                onChange={this.handleChange}
-              >
-                {skills.map(ski => (//repalce color with skill list
-                  <MenuItem key={ski.value} value={ski.value}>
-                    {ski.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <TextField
-                fullWidth
-                select
-                className={classes.textField}
-                value={interest}//create const interest
-                id="interest"
-                label="Interests"
-                margin="normal"
-                name="interest"
-                onChange={this.handleChange}
-              >
-                {colors.map(color => (//repalce color with skill list
-                  <MenuItem key={color.value} value={color.value}>
-                    {color.label}
-                  </MenuItem>
-                ))}
-              </TextField>
               <FormControlLabel
                 control={
                   <Switch
