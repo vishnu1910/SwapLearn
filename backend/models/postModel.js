@@ -11,6 +11,10 @@ const PostSchema = new Schema({
     type: Number,
     required: true
   },
+  skill: {
+    type: String,
+    required: true
+  },
   comments: {
     type: [
       {

@@ -73,6 +73,7 @@ class PostList extends Component {
                 author={post.author}
                 authorId={post.authorId}
                 avatarColor={post.avatarColor}
+                skill={post.skill}
                 comments={post.comments}
                 likers={post.likers}
                 likesCount={post.likesCount}

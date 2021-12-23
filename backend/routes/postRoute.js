@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
   const newPost = new Post({
     authorId: req.body.authorId,
     avatarColor: req.body.avatarColor || 0,
+    skill: req.body.skill || "",
     comments: [],
     likers: [],
     likesCount: 0,

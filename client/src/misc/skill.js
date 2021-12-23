@@ -1,34 +1,34 @@
 const skills = [
     {
-      value: 0,
+      value: 'Guitar',
       label: 'Guitar'
     },
     {
-      value: 1,
+      value: 'Piano',
       label: 'Piano'
     },
     {
-      value: 2,
+      value: 'Painting',
       label: 'Painting'
     },
     {
-      value: 3,
+      value: 'Karate',
       label: 'Karate'
     },
     {
-      value: 4,
+      value: 'Python',
       label: 'Python'
     },
     {
-      value: 5,
+      value: 'Java',
       label: 'Java'
     },
     {
-      value: 6,
+      value: 'Violin',
       label: 'Violin'
     },
     {
-      value: 7,
+      value: 'Carpentry',
       label: 'Carpentry'
     }
   ];
