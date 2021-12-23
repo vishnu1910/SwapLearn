@@ -7,6 +7,14 @@ const UserSchema = new Schema({
     type: Number,
     required: true
   },
+  skill:{
+    type: Number,
+    required: true
+  },
+  interest:{
+    type: Number,
+    required: true
+  },
   bio: {
     type: String
   },

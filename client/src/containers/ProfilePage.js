@@ -95,7 +95,7 @@ class ProfilePage extends Component {
     skill: 3,
     createdAt: 0,
     displayedAvatarColor: 17,
-    //displayedSkills: 3,
+    displayedSkills: 3,
     displayedBio: '',
     displayedEmail: '',
     displayedName: '',
@@ -144,10 +144,10 @@ class ProfilePage extends Component {
       this.setState({
         avatarColor: res.payload.user.avatarColor,
         bio: res.payload.user.bio,
-        skill: res.payload.user.skillnum,
+        skill: res.payload.user.skill,
         createdAt: res.payload.user.createdAt,
         displayedAvatarColor: res.payload.user.avatarColor,
-        //displayedSkills: res.payload.user.skillnum,
+        displayedSkills: res.payload.user.skillnum,
         displayedBio: res.payload.user.bio,
         displayedEmail: res.payload.user.email,
         displayedName: res.payload.user.name,
@@ -170,7 +170,7 @@ class ProfilePage extends Component {
   };
 
   handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, skill, interest, value } = e.target;
     this.setState(() => ({ [name]: value }));
   };
 
@@ -197,6 +197,7 @@ class ProfilePage extends Component {
     ).then(() => {
       this.setState(
         {
+          displayedSkills: skill,
           displayedAvatarColor: avatarColor,
           displayedBio: bio,
           displayedEmail: email,
@@ -217,7 +218,7 @@ class ProfilePage extends Component {
       skill,
       createdAt,
       displayedAvatarColor,
-      //displayedSkills,
+      displayedSkills,
       displayedBio,
       displayedEmail,
       displayedName,
@@ -265,6 +266,7 @@ class ProfilePage extends Component {
                 author={displayedName}
                 authorId={profileId}
                 avatarColor={displayedAvatarColor}
+                skill = {displayedSkills}
                 getUser={getTheUser}
               />
               <Typography variant="headline">{displayedName}</Typography>
@@ -360,6 +362,7 @@ class ProfilePage extends Component {
                 fullWidth
                 select
                 className={classes.textField}
+                defaultValue={skill}
                 value={skill}//create const skill
                 id="skill"
                 label="Skills"
@@ -444,8 +447,8 @@ const mapDispatchToProps = dispatch => ({
   getUsersYouAreFollowing: id => dispatch(getFollowing(id)),
   getYourFollowers: id => dispatch(getFollowers(id)),
   retrieveUser: userId => dispatch(getUser(userId)),
-  updateUser: (avatarColor, bio, email, name, id, showEmail) =>
-    dispatch(updateCurrentUser(avatarColor, bio, email, name, id, showEmail))
+  updateUser: (avatarColor, skill, interest, bio, email, name, id, showEmail) =>
+    dispatch(updateCurrentUser(avatarColor,skill, interest, bio, email, name, id, showEmail))
 });
 
 export default compose(

@@ -35,6 +35,8 @@ router.post('/signup', async (req, res) => {
       }
       const newUser = new User({
         avatarColor: Math.floor(Math.random() * 18) + 1,
+        skill : req.body.skill,
+        interest: req.body.interest,
         createdAt: new Date().getTime(),
         email: req.body.email,
         name: req.body.name,
@@ -83,6 +85,8 @@ router.post('/login', async (req, res) => {
           {
             avatarColor: user.avatarColor,
             createdAt: user.createdAt,
+            skill:user.skill,
+            interest: user.interest,
             name: user.name,
             email: user.email,
             showEmail: user.showEmail,
@@ -134,6 +138,8 @@ router.patch('/:id', async (req, res) => {
         $set: {
           avatarColor: req.body.avatarColor,
           bio: req.body.bio || '',
+          skill: req.body.skill,
+          interest: req.body.interest,
           email: req.body.email,
           name: req.body.name,
           showEmail: req.body.showEmail
@@ -155,6 +161,8 @@ router.patch('/:id', async (req, res) => {
     const token = jwt.sign(
       {
         avatarColor: user.avatarColor,
+        skill: user.skill,
+        interest: user.interest,
         bio: user.bio,
         createdAt: user.createdAt,
         name: user.name,
