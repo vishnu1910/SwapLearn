@@ -91,11 +91,13 @@ const styles = theme => ({
 class ProfilePage extends Component {
   state = {
     avatarColor: 17,
-    skill: '',
+    skill: [],
+    interest : [],
     bio: '',
     createdAt: 0,
     displayedAvatarColor: 17,
     displayedSkill: '',
+    displayedInterest: [],
     displayedBio: '',
     displayedEmail: '',
     displayedName: '',
@@ -144,10 +146,12 @@ class ProfilePage extends Component {
       this.setState({
         avatarColor: res.payload.user.avatarColor,
         skill: res.payload.user.skill,
+        interest: res.payload.user.interest,
         bio: res.payload.user.bio,
         createdAt: res.payload.user.createdAt,
         displayedAvatarColor: res.payload.user.avatarColor,
         displayedSkill: res.payload.user.skill,
+        displayedInterest: res.payload.user.interest,
         displayedBio: res.payload.user.bio,
         displayedEmail: res.payload.user.email,
         displayedName: res.payload.user.name,
@@ -184,11 +188,12 @@ class ProfilePage extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { updateUser, signedInUser } = this.props;
-    const { avatarColor, skill, bio, email, name, showEmail } = this.state;
+    const { avatarColor, skill, interest, bio, email, name, showEmail } = this.state;
 
     updateUser(
       avatarColor,
       skill,
+      interest,
       bio,
       email,
       name,
@@ -199,6 +204,7 @@ class ProfilePage extends Component {
         {
           displayedAvatarColor: avatarColor,
           displayedSkill: skill,
+          displayedInterest: interest,
           displayedBio: bio,
           displayedEmail: email,
           displayedName: name,
@@ -218,6 +224,7 @@ class ProfilePage extends Component {
       createdAt,
       displayedAvatarColor,
       displayedSkill,
+      displayedInterest,
       displayedBio,
       displayedEmail,
       displayedName,
@@ -271,6 +278,7 @@ class ProfilePage extends Component {
                 <Typography>{displayedEmail}</Typography>
               ) : null}
               <Typography>{displayedSkill}</Typography>
+              <Typography>{displayedInterest}</Typography>
               <Typography>{displayedBio}</Typography>
             </CardContent>
           </Card>
@@ -364,6 +372,24 @@ class ProfilePage extends Component {
               </TextField>
               <TextField
                 fullWidth
+                select
+                className={classes.textField}
+                defaultValue={displayedInterest}
+                id="interest"
+                label="Interest"
+                margin="normal"
+                name="interest"
+                onChange={this.handleChange}
+                placeholder='Select Interests'
+              >
+                {skills.map(skill => (
+                  <MenuItem key={skill.value} value={skill.value}>
+                    {skill.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+              <TextField
+                fullWidth
                 multiline
                 className={classes.textField}
                 defaultValue={displayedBio}
@@ -428,8 +454,8 @@ const mapDispatchToProps = dispatch => ({
   getUsersYouAreFollowing: id => dispatch(getFollowing(id)),
   getYourFollowers: id => dispatch(getFollowers(id)),
   retrieveUser: userId => dispatch(getUser(userId)),
-  updateUser: (avatarColor, skill, bio, email, name, id, showEmail) =>
-    dispatch(updateCurrentUser(avatarColor, skill, bio, email, name, id, showEmail))
+  updateUser: (avatarColor, skill, interest, bio, email, name, id, showEmail) =>
+    dispatch(updateCurrentUser(avatarColor, skill, interest, bio, email, name, id, showEmail))
 });
 
 export default compose(

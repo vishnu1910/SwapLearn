@@ -104,6 +104,8 @@ UserCard.propTypes = {
   listedUser: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     avatarColor: PropTypes.number.isRequired,
+    skill: PropTypes.number.isRequired,
+    interest: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired
   }).isRequired,
   signedInUser: PropTypes.shape({

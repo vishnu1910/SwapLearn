@@ -12,7 +12,11 @@ const PostSchema = new Schema({
     required: true
   },
   skill: {
-    type: String,
+    type: [String],
+    required: true
+  },
+  interest: {
+    type: [String],
     required: true
   },
   comments: {

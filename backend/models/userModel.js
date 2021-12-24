@@ -8,7 +8,11 @@ const UserSchema = new Schema({
     required: true
   },
   skill: {
-    type: String,
+    type: [String],//changed this to list
+    required: true
+  },
+  interest: {
+    type: [String],
     required: true
   },
   bio: {

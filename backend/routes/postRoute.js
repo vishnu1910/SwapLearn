@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
     authorId: req.body.authorId,
     avatarColor: req.body.avatarColor || 0,
     skill: req.body.skill || "",
+    interest: req.body.interest || "",
     comments: [],
     likers: [],
     likesCount: 0,
