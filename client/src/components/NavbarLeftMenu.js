@@ -6,7 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import MenuIcon from '@material-ui/icons/Menu';
-import { FolderListItems, OtherFolderListItems } from './MenuItems';
+import { FolderListItems } from './MenuItems';
 
 const styles = theme => ({
   list: {
@@ -41,7 +41,6 @@ class NavbarLeftMenu extends React.Component {
           <FolderListItems user={user} />
         </List>
         <Divider />
-        <List>{OtherFolderListItems}</List>
       </div>
     );
 
