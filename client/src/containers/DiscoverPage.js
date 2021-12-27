@@ -19,6 +19,9 @@ import NavbarContainer from './NavbarContainer';
 import Loading from '../components/Loading';
 import UserCard from '../components/UserCard';
 
+var skilluserlist = [];
+var arr = [];
+var flag = 0;
 const styles = theme => ({
   cardGrid: {
     padding: `${theme.spacing.unit * 4}px 0`
@@ -58,7 +61,7 @@ export class DiscoverPage extends Component {
       this.updateFollowing();
     }
   }
-
+  
   // Set "following" to be the list of users you are following
   updateFollowing = () => {
     const { authReducer, getCurrUser } = this.props;
@@ -68,7 +71,28 @@ export class DiscoverPage extends Component {
       });
     });
   };
-
+  filterArr(skill_list){
+    const { userReducer} = this.props;
+    if(flag===0){
+      arr = userReducer.allUsers
+      var skill_list_length = skill_list.length
+      var arr_length = arr.length
+      for(let k = 0; k<skill_list_length; k++){
+        for(let i = 0; i<arr_length; i++){
+          for(let j =0; j<arr[i].skill.length;j++){
+            if(arr[i].skill[j]===skill_list[k]){
+              skilluserlist.push(arr[i])
+              arr.splice(i,1)
+              arr_length-=1
+              console.log(userReducer.currUser)
+              break
+            }
+          }
+        }
+      }
+      flag=1
+    }
+  }
   render() {
     const {
       authReducer,
@@ -79,19 +103,23 @@ export class DiscoverPage extends Component {
       unfollowThisUser
     } = this.props;
     const { following, loading } = this.state;
-
+    
     return loading ? (
+      
       <div>
         <NavbarContainer />
         <Loading />
       </div>
     ) : (
       <div>
+        
         <NavbarContainer />
         <main>
+          {this.filterArr(["Violin","Karate"])}
           <div className={classNames(classes.layout, classes.cardGrid)}>
             <Grid container justify="center" spacing={40}>
-              {userReducer.allUsers.map(
+              
+              {skilluserlist.map(
                 user =>
                   (user._id === authReducer.user.userId ? null : (
                     <Grid item key={user._id} sm={6} md={3} lg={2}>
