@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import { createPost } from '../actions/postsActions';
 import MenuItem from '@material-ui/core/MenuItem';
-import colors from '../misc/colors';
+import skill from '../misc/skill';
 import defaultImage from '../images/bg.jpg';
 
 const styles = theme => ({
@@ -90,18 +90,18 @@ export class CreatePost extends Component {
           fullWidth
           select
           className={classes.textField}
-          value={topic}//create const topic
+          value={skill.label}//create const topic
           id="outlined-name" 
           label="What do you want to teach today?"
           margin="normal"
           name="topic"
           Change={this.handleChange}
         >
-          {colors.map(color => (//repalce color with skill list
-            <MenuItem key={color.value} value={color.value}>
-              {color.label}
+          {skill.map(skill => (
+            <MenuItem key={skill.value} value={skill.value}>
+              {skill.label}
             </MenuItem>
-          ))}
+            ))}
         </TextField>
         <TextField
           variant ="outlined"
