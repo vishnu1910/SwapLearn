@@ -82,28 +82,29 @@ export class DiscoverPage extends Component {
     var cb6 = document.getElementById("cb6");
     var cb7 = document.getElementById("cb7");
     var cb8 = document.getElementById("cb8");
-    if (cb1.checked == true){
+	console.log(`cb1 ${cb1} `);
+    if (cb1!=null && cb1.checked == true){
       displayedInterest.push("Guitar");
     }
-    if (cb2.checked == true){
+    if (cb2!=null && cb2.checked == true){
       displayedInterest.push("Piano");
     }
-    if (cb3.checked == true){
+    if (cb3!=null && cb3.checked == true){
       displayedInterest.push("Painting");
     }
-    if (cb4.checked == true){
+    if (cb4!=null && cb4.checked == true){
       displayedInterest.push("Karate");
     }
-    if (cb5.checked == true){
+    if (cb5!=null && cb5.checked == true){
       displayedInterest.push("Python");
     }
-    if (cb6.checked == true){
+    if (cb6!=null && cb6.checked == true){
       displayedInterest.push("Java");
     }
-    if (cb7.checked == true){
+    if (cb7!=null && cb7.checked == true){
       displayedInterest.push("Violin");
     }
-    if (cb8.checked == true){
+    if (cb8!=null && cb8.checked == true){
       displayedInterest.push("Carpentry");
     }
   };
@@ -260,10 +261,7 @@ export class DiscoverPage extends Component {
 		</label>
 	</div>
 </fieldset>
-        <button type='submit' onClick={this.myCheck()}>
-          submit
-        </button>
-        {/* {this.myCheck()} */}
+<button onClick={this.myCheck()}>Submit</button>
         {console.log(document.getElementById("cb1"))}
           {console.log(displayedInterest)}
           {this.filterArr(displayedInterest)}
