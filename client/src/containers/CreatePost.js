@@ -9,8 +9,20 @@ import { withStyles } from '@material-ui/core/styles';
 import { createPost } from '../actions/postsActions';
 import MenuItem from '@material-ui/core/MenuItem';
 import colors from '../misc/colors';
+import defaultImage from '../images/bg.jpg';
 
 const styles = theme => ({
+  backgroundContainer: {
+    alignItems: 'center',
+    backgroundImage: `url(${defaultImage})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    display: 'flex',
+    height: '50vh',
+    justifyContent: 'center',
+    width: '100%'
+  },
   button: {
     margin: theme.spacing.unit
   },
@@ -22,8 +34,15 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 500
-  }
+    width: 500,
+  },
+  multilineColor:{
+    color:'white',
+    opacity:'1'
+  },
+  floatingLabelFocusStyle: {
+    color: "white"
+}
 });
 
 export class CreatePost extends Component {
@@ -50,13 +69,18 @@ export class CreatePost extends Component {
     const { postText } = this.state;
     const { classes } = this.props;
     return (
+      <div className={classes.backgroundContainer}>
       <form
         className={classes.container}
         noValidate
         autoComplete="off"
         onSubmit={this.handleSubmit}
       >
-        <TextField
+        <TextField 
+          InputLabelProps={{
+            className: classes.floatingLabelFocusStyle,
+        }}
+          multiline
           fullWidth
           select
           className={classes.textField}
@@ -65,7 +89,7 @@ export class CreatePost extends Component {
           label="What do you want to teach today?"
           margin="normal"
           name="topic"
-          onChange={this.handleChange}
+          Change={this.handleChange}
         >
           {colors.map(color => (//repalce color with skill list
             <MenuItem key={color.value} value={color.value}>
@@ -74,6 +98,9 @@ export class CreatePost extends Component {
           ))}
         </TextField>
         <TextField
+          InputProps={{
+            className: classes.multilineColor
+          }}
           id="textarea"
           placeholder="Add some details."
           multiline
@@ -92,6 +119,7 @@ export class CreatePost extends Component {
           Post
         </Button>
       </form>
+      </div>
     );
   }
 }
