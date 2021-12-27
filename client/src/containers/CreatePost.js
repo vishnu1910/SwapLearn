@@ -42,6 +42,10 @@ const styles = theme => ({
   },
   floatingLabelFocusStyle: {
     color: "white"
+},
+notchedOutline: {
+  borderWidth: "1px",
+  borderColor: "white !important"
 }
 });
 
@@ -77,15 +81,17 @@ export class CreatePost extends Component {
         onSubmit={this.handleSubmit}
       >
         <TextField 
+          variant="outlined-name"
           InputLabelProps={{
             className: classes.floatingLabelFocusStyle,
-        }}
+            notchedOutline: classes.notchedOutline
+          }}
           multiline
           fullWidth
           select
           className={classes.textField}
           value={topic}//create const topic
-          id="topic"
+          id="outlined-name" 
           label="What do you want to teach today?"
           margin="normal"
           name="topic"
@@ -98,6 +104,7 @@ export class CreatePost extends Component {
           ))}
         </TextField>
         <TextField
+          variant ="outlined"
           InputProps={{
             className: classes.multilineColor
           }}

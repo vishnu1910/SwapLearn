@@ -192,6 +192,26 @@ class ProfilePage extends Component {
     });
   };
 
+  funcDisplay = (e) => {
+    var temp = "";
+    var i,j =0;
+    var count = 0;
+    var p = e
+    for(i =0; i<e.length; i++){
+      for(j=0;j<i;j++){
+        if(e[i] === e[j]){
+          count = count+1;
+        }
+      }
+      if(count ===0 ){
+        temp = temp+e[i]+ ", ";
+      }
+      count = 0
+    }
+    console.log(`Temp = ${temp}`);
+    return temp;
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { updateUser, signedInUser } = this.props;
@@ -284,8 +304,8 @@ class ProfilePage extends Component {
               {showEmailSavedResult ? (
                 <Typography>{displayedEmail}</Typography>
               ) : null}
-              <Typography>{displayedSkill}</Typography>
-              <Typography>{displayedInterest}</Typography>
+              <Typography>Skills: {this.funcDisplay(displayedSkill)} </Typography>
+              <Typography>Interests: {displayedInterest} </Typography>
               <Typography>{displayedBio}</Typography>
             </CardContent>
           </Card>
