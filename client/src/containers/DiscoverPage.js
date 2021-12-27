@@ -72,39 +72,12 @@ export class DiscoverPage extends Component {
     }
   }
 
-  myCheck() {
+  handleOnChange = (s, st) => {
     // var x = []
-    var cb1 = document.getElementById("cb1");
-    var cb2 = document.getElementById("cb2");
-    var cb3 = document.getElementById("cb3");
-    var cb4 = document.getElementById("cb4");
-    var cb5 = document.getElementById("cb5");
-    var cb6 = document.getElementById("cb6");
-    var cb7 = document.getElementById("cb7");
-    var cb8 = document.getElementById("cb8");
-    if (cb1.checked == true){
-      displayedInterest.push("Guitar");
-    }
-    if (cb2.checked == true){
-      displayedInterest.push("Piano");
-    }
-    if (cb3.checked == true){
-      displayedInterest.push("Painting");
-    }
-    if (cb4.checked == true){
-      displayedInterest.push("Karate");
-    }
-    if (cb5.checked == true){
-      displayedInterest.push("Python");
-    }
-    if (cb6.checked == true){
-      displayedInterest.push("Java");
-    }
-    if (cb7.checked == true){
-      displayedInterest.push("Violin");
-    }
-    if (cb8.checked == true){
-      displayedInterest.push("Carpentry");
+    var cb = document.getElementById(s);
+  
+    if (cb.checked == true){
+      displayedInterest.push(st);
     }
   };
   
@@ -119,6 +92,10 @@ export class DiscoverPage extends Component {
     });
   };
   filterArr(skill_list){
+    // skill_list = ["Painting"]
+    console.log("Well Hello There Traveler")
+    console.log(`Display: ${displayedInterest}`)
+    console.log(`Skill-List: ${skill_list}`)
     const { userReducer} = this.props;
     if(flag===0){
       arr = userReducer.allUsers
@@ -139,6 +116,8 @@ export class DiscoverPage extends Component {
       }
       flag=1
     }
+    console.log("Well Hello There Again Traveler")
+
   }
   render() {
     const {
@@ -173,7 +152,7 @@ export class DiscoverPage extends Component {
 	<legend class="checkbox-group-legend">Discover</legend>
 	<div class="checkbox">
 		<label class="checkbox-wrapper">
-			<input type="checkbox" class="checkbox-input" id="cb1"/>
+			<input type="checkbox" class="checkbox-input" id="cb1" onClick={() => displayedInterest.push("Guitar")}/>
 			<span class="checkbox-tile">
 				<span class="checkbox-icon">
 				<i class="fas fa-guitar fa-3x"></i>
@@ -184,7 +163,7 @@ export class DiscoverPage extends Component {
 	</div>
 	<div class="checkbox">
 		<label class="checkbox-wrapper">
-			<input type="checkbox" class="checkbox-input" id="cb2"/>
+			<input type="checkbox" class="checkbox-input" id="cb2" onClick={() => displayedInterest.push("Painting") }/>
 			<span class="checkbox-tile">
 				<span class="checkbox-icon">
 				<i class="fas fa-paint-brush fa-3x"></i>
@@ -195,7 +174,7 @@ export class DiscoverPage extends Component {
 	</div>
 	<div class="checkbox">
 		<label class="checkbox-wrapper">
-			<input type="checkbox" class="checkbox-input" id="cb3"/>
+			<input type="checkbox" class="checkbox-input" id="cb3" onClick={() => displayedInterest.push("Piano")}/>
 			<span class="checkbox-tile">
 				<span class="checkbox-icon">
         <i class="fas fa-compact-disc fa-3x"></i>
@@ -206,7 +185,7 @@ export class DiscoverPage extends Component {
 	</div>
 	<div class="checkbox">
 		<label class="checkbox-wrapper">
-			<input type="checkbox" class="checkbox-input" id="cb4"/>
+			<input type="checkbox" class="checkbox-input" id="cb4" onClick={() => displayedInterest.push("Karate")}/>
 			<span class="checkbox-tile">
 				<span class="checkbox-icon">
 				<i class="fas fa-male fa-3x"></i>
@@ -217,7 +196,7 @@ export class DiscoverPage extends Component {
 	</div>
 	<div class="checkbox">
 		<label class="checkbox-wrapper">
-			<input type="checkbox" class="checkbox-input" id="cb5"/>
+			<input type="checkbox" class="checkbox-input" id="cb5" onClick={() => displayedInterest.push("Violin")}/>
 			<span class="checkbox-tile">
 				<span class="checkbox-icon">
 				<i class="fas fa-music fa-3x"></i>
@@ -228,7 +207,7 @@ export class DiscoverPage extends Component {
 	</div>
 	<div class="checkbox">
 		<label class="checkbox-wrapper">
-			<input type="checkbox" class="checkbox-input" id="cb6"/>
+			<input type="checkbox" class="checkbox-input" id="cb6" onClick={() => displayedInterest.push("Carpentry")}/>
 			<span class="checkbox-tile">
 				<span class="checkbox-icon">
 				<i class="fas fa-tools fa-3x"></i>
@@ -239,7 +218,7 @@ export class DiscoverPage extends Component {
 	</div>
 	<div class="checkbox">
 		<label class="checkbox-wrapper">
-			<input type="checkbox" class="checkbox-input" id="cb7"/>
+			<input type="checkbox" class="checkbox-input" id="cb7" onClick={() => displayedInterest.push("Python")}/>
 			<span class="checkbox-tile">
 				<span class="checkbox-icon">
         <i class="fab fa-python fa-3x"></i>
@@ -250,7 +229,7 @@ export class DiscoverPage extends Component {
 	</div>
 	<div class="checkbox">
 		<label class="checkbox-wrapper">
-			<input type="checkbox" class="checkbox-input" id="cb8"/>
+			<input type="checkbox" class="checkbox-input" id="cb8" onClick={() => displayedInterest.push("Java")}/>
 			<span class="checkbox-tile">
 				<span class="checkbox-icon">
         <i class="fab fa-java fa-3x"></i>
@@ -260,12 +239,13 @@ export class DiscoverPage extends Component {
 		</label>
 	</div>
 </fieldset>
-        <button type='submit' onClick={this.myCheck()}>
+        
+        {/* {this.myCheck()}
+        {/* {console.log(document.getElementById("cb1"))} */}
+          {/* {console.log(displayedInterest)} */}
+          {/* <button type='submit' onClick={this.filterArr(displayedInterest)}>
           submit
-        </button>
-        {/* {this.myCheck()} */}
-        {console.log(document.getElementById("cb1"))}
-          {console.log(displayedInterest)}
+        </button> */}
           {this.filterArr(displayedInterest)}
           <div className={classNames(classes.layout, classes.cardGrid)}>
             <Grid container justify="center" spacing={40}>
