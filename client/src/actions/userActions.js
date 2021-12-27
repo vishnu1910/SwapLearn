@@ -3,6 +3,7 @@ import {
   GET_FOLLOWERS,
   GET_FOLLOWING,
   GET_USER,
+  GET_USER_BY_SKILLS,
   GET_ALL_USERS,
   UPDATE_FOLLOWERS,
   UPDATE_FOLLOWING
@@ -74,6 +75,18 @@ export const getUser = userId => async (dispatch) => {
   const result = await axios.get(`/users/${userId}`);
   return dispatch({
     type: GET_USER,
+    payload: result.data
+  });
+};
+
+export const getUserbySkills = skilltype => async (dispatch) => {
+  const result = await axios.get(`/users`,{
+    params:{
+      name: skilltype
+    }
+  });
+  return dispatch({
+    type: GET_USER_BY_SKILLS,
     payload: result.data
   });
 };

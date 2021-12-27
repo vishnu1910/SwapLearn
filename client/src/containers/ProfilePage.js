@@ -178,6 +178,13 @@ class ProfilePage extends Component {
     this.setState(() => ({ [name]: value }));
   };
 
+  handleChangeforskill = (e) => {
+    const { name, value } = e.target;
+    this.setState({ 
+      skill: this.state.skill.concat([value])
+    })
+  };
+
   handleSwitchChange = (e) => {
     const { value } = e.target;
     this.setState({
@@ -361,7 +368,7 @@ class ProfilePage extends Component {
                 label="Skill"
                 margin="normal"
                 name="skill"
-                onChange={this.handleChange}
+                onChange={this.handleChangeforskill}
                 placeholder='Select Skills'
               >
                 {skills.map(skill => (

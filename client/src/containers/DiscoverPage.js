@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import {
   followUser,
   getFollowing,
+  getUserbySkills,
   getUser,
   getAllUsers,
   unfollowUser
