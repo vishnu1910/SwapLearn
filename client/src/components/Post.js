@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import * as moment from 'moment';
+import YouTube from 'react-youtube';
 
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -174,6 +175,7 @@ class Post extends Component {
         <CardContent>
           <Typography>{text}</Typography>
         </CardContent>
+        <YouTube videoId="dQw4w9WgXcQ"/>
         <CardActions className={classes.actions} disableActionSpacing>
           <div>
             <IconButton
