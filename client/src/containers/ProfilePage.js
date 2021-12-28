@@ -20,7 +20,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import colors from '../misc/colors';
 import skills from '../misc/skill';
-import defaultImage from '../images/pebbleBeach.JPG';
+import defaultImage from '../images/pfpbg.jpg';
 import { updateCurrentUser } from '../actions/authActions';
 import { getFollowers, getFollowing, getUser } from '../actions/userActions';
 import Loading from '../components/Loading';

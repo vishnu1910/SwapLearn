@@ -45,10 +45,13 @@ const styles = theme => ({
   floatingLabelFocusStyle: {
     color: "black"
 },
-notchedOutline: {
-  borderWidth: "1px",
-  borderColor: "black !important"
-}
+  resize:{
+    fontSize:25
+  },
+  notchedOutline: {
+    borderWidth: "1px",
+    borderColor: "black !important"
+  }
 });
 
 export class CreatePost extends Component {
@@ -109,7 +112,10 @@ export class CreatePost extends Component {
         <TextField
           variant ="outlined"
           InputProps={{
-            className: classes.multilineColor
+            className: classes.multilineColor,
+            classes: {
+              input: classes.resize,
+            }
           }}
           id="textarea"
           placeholder="Add some details."
