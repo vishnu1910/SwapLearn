@@ -7,8 +7,6 @@ const User = require('../models/userModel');
 
 const router = new express.Router();
 
-// Authentication builds on Maximilian Schwarzmüller's guide:
-// https://www.youtube.com/watch?v=0D5EEKH97NA
 
 // Get all users
 router.get('/', async (req, res) => {
