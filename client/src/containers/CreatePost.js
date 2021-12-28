@@ -11,6 +11,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import skill from '../misc/skill';
 import defaultImage from '../images/bg.jpg';
 
+
+const skillboi = ""
 const styles = theme => ({
   backgroundContainer: {
     alignItems: 'center',
@@ -37,15 +39,15 @@ const styles = theme => ({
     width: 500,
   },
   multilineColor:{
-    color:'white',
+    color:'black',
     opacity:'1'
   },
   floatingLabelFocusStyle: {
-    color: "white"
+    color: "black"
 },
 notchedOutline: {
   borderWidth: "1px",
-  borderColor: "white !important"
+  borderColor: "black !important"
 }
 });
 
@@ -90,12 +92,13 @@ export class CreatePost extends Component {
           fullWidth
           select
           className={classes.textField}
+          defaultValue={skillboi}
           value={skill.label}//create const topic
           id="outlined-name" 
           label="What do you want to teach today?"
           margin="normal"
           name="topic"
-          Change={this.handleChange}
+          onChange={this.handleChange}
         >
           {skill.map(skill => (
             <MenuItem key={skill.value} value={skill.value}>

@@ -250,7 +250,7 @@ export class DiscoverPage extends Component {
           <div className={classNames(classes.layout, classes.cardGrid)}>
             <Grid container justify="center" spacing={40}>
               
-              {skilluserlist.map(
+              {userReducer.allUsers.map(
                 user =>
                   (user._id === authReducer.user.userId ? null : (
                     <Grid item key={user._id} sm={6} md={3} lg={2}>
