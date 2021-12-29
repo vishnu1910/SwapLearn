@@ -177,7 +177,7 @@ class Post extends Component {
           <Typography style={{color:"#ffffff"}}>{text}</Typography>
         </CardContent>
         <CardContent>
-        <YouTube videoId={vidlink}/>
+        <YouTube videoId={""}/>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
           <div>
