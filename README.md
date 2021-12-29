@@ -1,4 +1,5 @@
 # SwapLearn
+SwapLearn is a skill-sharing plaform where you can connect with people based on your skills and interests and both learn and teach others by sharing tutorial videos. 
 
 ## Get Started On Your Device
 With the following simple steps you can get this project started on your system.
@@ -17,7 +18,7 @@ Step 3: Firing Up the App
 
 Login                     
 :-------------------------:|
-![Login](https://github.com/vishnu1910/tree/master/demo/login.png)  
+![Login](https://github.com/vishnu1910/SwapLearn/blob/main/demo/log.png)   
 
 Profile                    
 :-------------------------:|
@@ -48,8 +49,6 @@ Following
 ![Following](https://github.com/vishnu1910/SwapLearn/blob/main/demo/followings.png) 
 
 
-
-![Login](https://github.com/vishnu1910/SwapLearn/blob/main/demo/log.png)  
 
 
 ## TechStack
