@@ -1,4 +1,5 @@
 # SwapLearn
+SwapLearn is a skill-sharing plaform where you can connect with people based on your skills and interests and both learn and teach others by sharing tutorial videos. 
 
 ## Get Started On Your Device
 With the following simple steps you can get this project started on your system.
