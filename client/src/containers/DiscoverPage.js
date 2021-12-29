@@ -138,7 +138,7 @@ export class DiscoverPage extends Component {
         <Loading />
       </div>
     ) : (
-      <div>
+      <div style={{backgroundColor: "black"}}>
         
         <NavbarContainer />
         <main>

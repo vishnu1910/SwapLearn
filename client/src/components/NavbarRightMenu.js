@@ -53,6 +53,7 @@ class NavbarRightMenu extends Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
+          <div>
           <Link className={classes.link} to={`/profile/${user.userId}`}>
             <MenuItem onClick={this.handleClose}>Profile</MenuItem>
           </Link>
@@ -60,6 +61,7 @@ class NavbarRightMenu extends Component {
             <MenuItem onClick={this.handleClose}>Discover</MenuItem>
           </Link>
           <MenuItem onClick={logoutUser}>Logout</MenuItem>
+          </div>
         </Menu>
       </div>
     );

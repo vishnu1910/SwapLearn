@@ -16,7 +16,7 @@ export class HomePage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:"#000000"}}>
         <NavbarContainer />
         <CreatePost />
         <PostFeed />

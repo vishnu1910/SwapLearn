@@ -19,6 +19,9 @@ import Loading from '../components/Loading';
 import UserCard from '../components/UserCard';
 
 const styles = theme => ({
+  body:{
+    backgroundColor:"#000000"
+  },
   cardGrid: {
     padding: `${theme.spacing.unit * 4}px 0`
   },
@@ -94,7 +97,7 @@ export class FollowingPage extends Component {
         <Loading />
       </div>
     ) : (
-      <div>
+      <div style={{backgroundColor: "#000000"}}>
         <NavbarContainer />
         <main>
           <div className={classNames(classes.layout, classes.cardGrid)}>

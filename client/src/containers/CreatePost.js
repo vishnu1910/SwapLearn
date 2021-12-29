@@ -37,6 +37,7 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: 500,
+    height:20
   },
   multilineColor:{
     color:'black',
@@ -46,7 +47,7 @@ const styles = theme => ({
     color: "black"
 },
   resize:{
-    fontSize:25
+    fontSize:17
   },
   notchedOutline: {
     borderWidth: "1px",

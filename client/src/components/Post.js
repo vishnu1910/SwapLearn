@@ -116,10 +116,10 @@ class Post extends Component {
     const open = Boolean(anchorEl);
     const relativeTime = moment(timestamp).fromNow();
     return (
-      <Card className={classes.card}>
-        <CardHeader
+      <Card className={classes.card} style={{backgroundColor: "#00adb5"}}>
+        <CardHeader 
           avatar={
-            <UserAvatar
+            <UserAvatar 
               author={name}
               authorId={authorId}
               avatarColor={avatarColor}
@@ -173,9 +173,11 @@ class Post extends Component {
           subheader={relativeTime}
         />
         <CardContent>
-          <Typography>{text}</Typography>
+          <Typography style={{color:"#ffffff"}}>{text}</Typography>
         </CardContent>
+        <CardContent>
         <YouTube videoId="dQw4w9WgXcQ"/>
+        </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
           <div>
             <IconButton
