@@ -17,7 +17,7 @@ Step 3: Firing Up the App
 
 Login                     
 :-------------------------:|
-![Login](https://github.com/vishnu1910/tree/master/demo/login.png)  
+![Login](https://github.com/vishnu1910/SwapLearn/blob/main/demo/log.png)   
 
 Profile                    
 :-------------------------:|
@@ -48,5 +48,3 @@ Following
 ![Following](https://github.com/vishnu1910/SwapLearn/blob/main/demo/followings.png) 
 
 
-
-![Login](https://github.com/vishnu1910/SwapLearn/blob/main/demo/log.png)  
