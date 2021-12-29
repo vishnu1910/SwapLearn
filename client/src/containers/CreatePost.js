@@ -11,7 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import skill from '../misc/skill';
 import defaultImage from '../images/bg.jpg';
 
-
+const vidlink ="dQw4w9WgXcQ"
 const skillboi = ""
 const styles = theme => ({
   backgroundContainer: {
@@ -155,3 +155,5 @@ export default compose(
   withStyles(styles),
   connect(mapStateToProps)
 )(CreatePost);
+
+export {vidlink};

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import * as moment from 'moment';
 import YouTube from 'react-youtube';
-
+import { vidlink } from '../containers/CreatePost';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -23,6 +23,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Comments from './Comments';
 import EditModal from './EditModal';
 import UserAvatar from './UserAvatar';
+import { link } from '../containers/CreatePost';
 
 const options = ['Edit', 'Delete'];
 const ITEM_HEIGHT = 48;
@@ -176,7 +177,7 @@ class Post extends Component {
           <Typography style={{color:"#ffffff"}}>{text}</Typography>
         </CardContent>
         <CardContent>
-        <YouTube videoId="dQw4w9WgXcQ"/>
+        <YouTube videoId={vidlink}/>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
           <div>
